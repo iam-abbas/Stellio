@@ -69,6 +69,7 @@ def sms():
     typef = request.args.get("type")
     namef = request.args.get("name")
     addf = request.args.get("address")
+    cno = request.args.get("cno")
     # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
     account_sid = 'ACc968f427b12e6e1251e2ff7ab918e408' # Found on Twilio Console Dashboard
     auth_token = 'dced10d6c48c2a43d89c3ee30f50675c'
@@ -79,7 +80,7 @@ def sms():
 # replace this number with your own WhatsApp Messaging number
     to_whatsapp_number='whatsapp:+15102169073'
 
-    clnt.messages.create(body='Hey I have some'+namef+'('+typef+')'+'available for free at '+addf,
+    clnt.messages.create(body='Hey I have some '+namef+' ('+typef+') '+'available for free at '+addf+' You can call us at '+cno,
                        from_=from_whatsapp_number,
                        to=to_whatsapp_number)
     return '''<script>window.location.replace("/");</script>'''

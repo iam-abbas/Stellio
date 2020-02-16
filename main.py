@@ -2,6 +2,7 @@ from amadeus import Client, ResponseError
 import json
 from flask import Flask, render_template, request 
 import iso8601
+import twilio.rest
 
 app = Flask(__name__)
 
@@ -52,9 +53,36 @@ def maps():
 @app.route('/')
 def index():
     return render_template("main.html")
-@app.route('/tours')
+@app.route('/tours1')
 def tours():
     return render_template("tours.html")
+@app.route('/tours')
+def tour():
+    return render_template("tours1.html")
+
+@app.route('/food')
+def food():
+    return render_template("food.html")
+
+@app.route('/sms', methods=['GET'])
+def sms():
+    typef = request.args.get("type")
+    namef = request.args.get("name")
+    addf = request.args.get("address")
+    # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
+    account_sid = 'ACc968f427b12e6e1251e2ff7ab918e408' # Found on Twilio Console Dashboard
+    auth_token = 'dced10d6c48c2a43d89c3ee30f50675c'
+    clnt = twilio.rest.Client(account_sid, auth_token)
+
+# this is the Twilio sandbox testing number
+    from_whatsapp_number='whatsapp:+14155238886'
+# replace this number with your own WhatsApp Messaging number
+    to_whatsapp_number='whatsapp:+15102169073'
+
+    clnt.messages.create(body='Hey I have some'+namef+'('+typef+')'+'available for free at '+addf,
+                       from_=from_whatsapp_number,
+                       to=to_whatsapp_number)
+    return '''<script>window.location.replace("/");</script>'''
 
 
 if __name__ == '__main__':

@@ -8,6 +8,7 @@ The main target audience of Stellio would be people who do not mind having long 
 - Interest Areas
 - Previous Experiences
 - Reviews
+
 We plan to add more factors in the future. Our platform can also be integrated on any trip booking site(Cheapflights, uber). We also have a feature where you can try out free food samples from different restaurants on your way.
 
 ## Technical Report
@@ -36,6 +37,7 @@ The Backend of Stellio is built entirely on Flask. The flight data is fetched in
 - Destinations City (string)
 - Date of Travel (date)
 - Number of Adults (int)
+
 After the API call is made the response data is stored in a JSON object and is passed on to the rendered html template. Here Jinjja is used to display the required information from the json dictionary. JSON dictionary primarily includes:-
 - IATA Codes of:
   - Origin City

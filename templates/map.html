@@ -120,7 +120,7 @@
         };
 
         var map = tt.map({
-            key: 'ZIt0QgwwpMJky9kpiU0kPGBGOyBflhUh',
+            key: '<YOUR TOMTOM API KEY HERE>',
             container: 'map',
             style: 'tomtom://vector/1/basic-main',
             dragPan: !isMobileOrTablet()
@@ -157,7 +157,7 @@
             var searchBox = new tt.plugins.SearchBox(tt.services.fuzzySearch, {
                 showSearchIcon: false,
                 searchOptions: {
-                    key: 'ZIt0QgwwpMJky9kpiU0kPGBGOyBflhUh'
+                    key: '<YOUR TOMTOM API KEY HERE>'
                 },
                 placeholder: 'Search for a place...'
             });
@@ -195,7 +195,7 @@
             var endPointLngLat = state.endMarker.getLngLat();
             console.log(startPointLngLat)
             return tt.services.calculateRoute({
-                key: 'ZIt0QgwwpMJky9kpiU0kPGBGOyBflhUh',
+                key: '<YOUR TOMTOM API KEY HERE>',
                 traffic: false,
                 locations: [startPointLngLat, endPointLngLat]
             }).go();
@@ -303,7 +303,7 @@
             searchMarkersManager.clear();
             loadingHint.setMessage('Loading...');
             tt.services.alongRouteSearch({
-                key: 'ZIt0QgwwpMJky9kpiU0kPGBGOyBflhUh',
+                key: '<YOUR TOMTOM API KEY HERE>',
                 query: query.value,
                 maxDetourTime: maxDetourTime.value,
                 limit: limit.value,

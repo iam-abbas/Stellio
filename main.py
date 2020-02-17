@@ -19,8 +19,8 @@ def dateWords(d):
     return str(iso8601.parse_date(d).strftime('%A %d %B %Y')).title()
 
 amadeus = Client(
-    client_id='w6OWO18wAHAhSOKHOaxZczm8DAzfedIv',
-    client_secret='Z3e8Ax7ACNgjWFGD'
+    client_id='<AMADEUS API KEY HERE>',
+    client_secret='AMADEUS API KEY SECRET HERE<>'
 )
 
 iata_codes = {
@@ -71,8 +71,8 @@ def sms():
     addf = request.args.get("address")
     cno = request.args.get("cno")
     # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
-    account_sid = 'ACc968f427b12e6e1251e2ff7ab918e408' # Found on Twilio Console Dashboard
-    auth_token = 'dced10d6c48c2a43d89c3ee30f50675c'
+    account_sid = '<TWILIO KEY HERE>' # Found on Twilio Console Dashboard
+    auth_token = '<TWILIO AUTH TOKEN HERE>'
     clnt = twilio.rest.Client(account_sid, auth_token)
 
 # this is the Twilio sandbox testing number
